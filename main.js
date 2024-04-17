@@ -3,6 +3,7 @@
 // The state of the game
 let state = {};
 
+
 let isDragging = false;
 let dragStartX = undefined;
 let dragStartY = undefined;
@@ -13,7 +14,8 @@ let delayTimeoutID = undefined;
 
 let simulationMode = false;
 let simulationImpact = {};
-
+const music = new Audio ('./DDTank Música _Sala de Batalha_ (Alta Qualidade_Re-criação).mp3')
+music.play()
 // Settings
 const settings = {
   numberOfPlayers: 1, // 0 means two computers are playing against each other
@@ -23,6 +25,7 @@ const settings = {
 const blastHoleRadius = 18;
 
 // The main canvas element and its drawing context
+
 const canvas = document.getElementById("game");
 canvas.width = window.innerWidth * window.devicePixelRatio;
 canvas.height = window.innerHeight * window.devicePixelRatio;
@@ -69,10 +72,10 @@ const colorModeButtonDOM = document.getElementById("color-mode");
 colorModeButtonDOM.addEventListener("click", () => {
   if (settings.mode === "dark") {
     settings.mode = "light";
-    colorModeButtonDOM.innerText = "Dark Mode";
+    colorModeButtonDOM.innerText = "Modo Noite ";
   } else {
     settings.mode = "dark";
-    colorModeButtonDOM.innerText = "Light Mode";
+    colorModeButtonDOM.innerText = "Modo Dia";
   }
   draw();
 });
@@ -952,11 +955,11 @@ function checkGorillaHit() {
 
 function announceWinner() {
   if (settings.numberOfPlayers === 0) {
-    winnerDOM.innerText = `Computer ${state.currentPlayer}`;
+    winnerDOM.innerText = `Computador ${state.currentPlayer}`;
   } else if (settings.numberOfPlayers === 1 && state.currentPlayer === 1) {
-    winnerDOM.innerText = `You`;
+    winnerDOM.innerText = `Voce`;
   } else if (settings.numberOfPlayers === 1 && state.currentPlayer === 2) {
-    winnerDOM.innerText = `Computer`;
+    winnerDOM.innerText = `Computador`;
   } else {
     winnerDOM.innerText = `Player ${state.currentPlayer}`;
   }
