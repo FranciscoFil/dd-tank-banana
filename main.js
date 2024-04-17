@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const music = new Audio('./ddtankMusic.mp3');
+  music.loop = true; 
+  music.play();
+});
 
 
 // The state of the game
@@ -14,8 +19,7 @@ let delayTimeoutID = undefined;
 
 let simulationMode = false;
 let simulationImpact = {};
-const music = new Audio ('./DDTank Música _Sala de Batalha_ (Alta Qualidade_Re-criação).mp3')
-music.play()
+
 // Settings
 const settings = {
   numberOfPlayers: 1, // 0 means two computers are playing against each other
